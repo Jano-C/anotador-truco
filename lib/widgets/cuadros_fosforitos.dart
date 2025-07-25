@@ -1,3 +1,4 @@
+import 'package:anotador_truco/config/apptextcolor.dart';
 import 'package:flutter/material.dart';
 
 /// Muestra grupos de fosforitos para representar puntos de Truco.
@@ -17,14 +18,20 @@ class CuadrosFosforitos extends StatelessWidget {
         final puntosRestantes = puntos - (index * 5);
         final puntosGrupo = puntosRestantes >= 5 ? 5 : puntosRestantes;
 
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6), // separación vertical entre grupos
-          child: _GrupoFosforito(cantidad: puntosGrupo),
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6),
+              child: _GrupoFosforito(cantidad: puntosGrupo),
+            ),
+            if (index == 2) const SizedBox(height: 30), // espacio extra después del tercer grupo
+          ],
         );
       }),
     );
   }
 }
+
 /// Un grupo de 1 a 5 fosforitos dispuestos como un cuadrado.
 class _GrupoFosforito extends StatelessWidget {
   final int cantidad;
@@ -34,14 +41,14 @@ class _GrupoFosforito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 36,
-      height: 36,
+      width: 68,
+      height: 68,
       child: Stack(
         children: [
-          if (cantidad >= 1) _palito(top: 0, left: 6, right: 6),
-          if (cantidad >= 2) _palito(top: 6, right: 0, bottom: 6, horizontal: false),
-          if (cantidad >= 3) _palito(bottom: 0, left: 6, right: 6),
-          if (cantidad >= 4) _palito(top: 6, left: 0, bottom: 6, horizontal: false),
+          if (cantidad >= 1) _palito(top: 0, left: 5, right: 5),
+          if (cantidad >= 2) _palito(top: 5, right: 0, bottom: 5, horizontal: false),
+          if (cantidad >= 3) _palito(bottom: 0, left: 5, right: 5),
+          if (cantidad >= 4) _palito(top: 5, left: 0, bottom: 5, horizontal: false),
           if (cantidad >= 5) _cruz(),
         ],
       ),
@@ -61,9 +68,9 @@ class _GrupoFosforito extends StatelessWidget {
       left: left,
       right: right,
       child: Container(
-        width: horizontal ? null : 2,
-        height: horizontal ? 2 : null,
-        color: Colors.black,
+        width: horizontal ? 72 : 4,
+        height: horizontal ? 4 : 72,
+        color: AppTextColor.primary,
       ),
     );
   }
@@ -73,9 +80,9 @@ class _GrupoFosforito extends StatelessWidget {
       child: Transform.rotate(
         angle: 0.785398, // 45 grados (π/4)
         child: Container(
-          width: 2,
-          height: 36,
-          color: Colors.black,
+          width: 4,
+          height: 72,
+          color: AppTextColor.primary,
         ),
       ),
     );

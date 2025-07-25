@@ -1,0 +1,16 @@
+flutter clean
+flutter build web --base-href /anotador-truco/
+
+Remove-Item -Recurse -Force deploy_temp -ErrorAction SilentlyContinue
+mkdir deploy_temp
+Copy-Item -Recurse -Path build\web\* -Destination deploy_temp\
+
+cd deploy_temp
+
+git init
+git checkout -b gh-pages
+git remote remove origin -ErrorAction SilentlyContinue
+git remote add origin https://github.com/Jano-C/anotador-truco.git
+git add .
+git commit -m "Deploy build web $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+git push -f origin gh-pages

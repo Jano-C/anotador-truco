@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/truco_screen.dart';
+import 'screens/Home_screen.dart';
 
 /// Punto de entrada de la app
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const TrucoScreen(),
+      home: const HomeScreen(),
     );
   }
 }
