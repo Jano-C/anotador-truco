@@ -1,16 +1,18 @@
-# anotador_truco
+# Anotador de Truco - Flutter Web
 
-A new Flutter project.
+Aplicación web simple para llevar el puntaje de partidas de Truco, creada con Flutter Web.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- Control de puntaje para dos equipos: "Nos" y "Ellos".
+- Representación visual con fosforitos (puntos en forma de cuadraditos).
+- Controles de suma y resta de puntos para cada equipo.
+- Mensaje de ganador cuando algún equipo llega a 30 puntos.
+- Diseño minimalista y oscuro para reducir consumo de batería.
+- Deploy sencillo y rápido en Netlify.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter Web
+- Dart
+- Netlify para hosting
