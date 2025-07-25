@@ -2,6 +2,8 @@
 
 Aplicación web simple para llevar el puntaje de partidas de Truco, creada con Flutter Web.
 
+se puede acceder por este enlace https://jano-c.netlify.app/
+
 ## Características
 
 - Control de puntaje para dos equipos: "Nos" y "Ellos".
