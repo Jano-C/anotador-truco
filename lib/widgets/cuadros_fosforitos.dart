@@ -1,4 +1,5 @@
-import 'package:anotador_truco/config/apptextcolor.dart';
+
+import 'package:anotador_truco/config/Theme/apptextcolor.dart';
 import 'package:flutter/material.dart';
 
 /// Muestra grupos de fosforitos para representar puntos de Truco.

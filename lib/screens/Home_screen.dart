@@ -1,8 +1,9 @@
-import 'package:anotador_truco/config/apptextcolor.dart';
+
+import 'package:anotador_truco/config/Theme/apptextcolor.dart';
 import 'package:anotador_truco/services/guardarPuntos.dart';
-import 'package:anotador_truco/widgets/botones_suma_resta.dart';
-import 'package:anotador_truco/widgets/cuadros_fosforitos.dart';
 import 'package:anotador_truco/widgets/dialog_ganador.dart';
+import 'package:anotador_truco/widgets/side_menu.dart';
+import 'package:anotador_truco/widgets/tablero_dos_equipos.dart';
 import 'package:flutter/material.dart';
 
 
@@ -32,6 +33,48 @@ Future<void> _cargarPuntajes() async {
   });
 }
 
+  @override
+ Widget build(BuildContext context) {
+  
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  return Scaffold(
+    key: scaffoldKey,
+    drawer: SideMenu(scaffoldKey: scaffoldKey),
+      backgroundColor: const Color(0xFF1E1E1E),
+      
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white), 
+        backgroundColor: const Color(0xFF2C2C2C),
+        title: const Text('Truquito',
+        style: TextStyle(color: AppTextColor.primary),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh,color: AppTextColor.primary),
+            tooltip: "Reiniciar puntaje",
+            onPressed: reiniciarPuntos,
+          ),
+        ],
+      ),
+      
+      body: Container(
+  padding: const EdgeInsets.all(16),
+  constraints: const BoxConstraints(maxWidth: 600),
+  child: TableroDosEquipos(
+    puntosEquipoA: puntosEquipoA,
+    puntosEquipoB: puntosEquipoB,
+    onSumarA: sumarPuntoA,
+    onRestarA: restarPuntoA,
+    onSumarB: sumarPuntoB,
+    onRestarB: restarPuntoB,
+    ),
+      ),
+        );
+
+  }
+  
 void sumarPuntoA() {
   if (puntosEquipoA < 30) {
     setState(() {
@@ -82,87 +125,4 @@ void sumarPuntoA() {
     LocalStorageService.resetear();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF1E1E1E),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF2C2C2C),
-        title: const Text('Truquito',
-        style: TextStyle(color: AppTextColor.primary),
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh,color: AppTextColor.primary),
-            tooltip: "Reiniciar puntaje",
-            onPressed: reiniciarPuntos,
-          ),
-        ],
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        constraints: const BoxConstraints(maxWidth: 600),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-           Expanded(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 268), // margen superior opcional para ajustar la altura exacta
-                  BotonesSumRest(
-                    onSumar: sumarPuntoA,
-                    onRestar: restarPuntoA,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Nos',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color:  AppTextColor.primary),
-                  ),
-                  const SizedBox(height: 20),
-                  Expanded(child: CuadrosFosforitos(puntos: puntosEquipoA)),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Ellos',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color:  AppTextColor.primary),
-                  ),
-                  const SizedBox(height: 20),
-                  Expanded(child: CuadrosFosforitos(puntos: puntosEquipoB)),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start, 
-              children: [
-                const SizedBox(height: 268), // margen superior opcional para ajustar la altura exacta
-                BotonesSumRest(
-                  onSumar: sumarPuntoB,
-                  onRestar: restarPuntoB,
-                ),
-              ],
-            ),
-          ),
-          ],
-        ),
-      ),
-    );
-  }
 }

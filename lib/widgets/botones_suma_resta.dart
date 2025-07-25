@@ -18,7 +18,7 @@ class BotonesSumRest extends StatelessWidget {
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10), // bordes ligeramente redondeados, pone 0 para esquinas rectas
+            borderRadius: BorderRadius.circular(10), 
             ),
             padding: const EdgeInsets.all(12),
           ),
@@ -29,7 +29,7 @@ class BotonesSumRest extends StatelessWidget {
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             shape:RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10), // bordes ligeramente redondeados, pone 0 para esquinas rectas
+            borderRadius: BorderRadius.circular(10), 
             ),
             padding: const EdgeInsets.all(12),
           ),

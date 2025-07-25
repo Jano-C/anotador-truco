@@ -1,25 +1,26 @@
+import 'package:anotador_truco/config/router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'screens/Home_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Punto de entrada de la app
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp())); 
 }
 
-/// Widget principal que configura MaterialApp y la pantalla inicial
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Anotador de Truco',
       debugShowCheckedModeBanner: false,
+      routerConfig: appRouter,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
     );
   }
 }
