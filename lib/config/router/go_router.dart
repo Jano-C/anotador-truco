@@ -1,7 +1,7 @@
 import 'package:anotador_truco/screens/home_screen.dart';
 import 'package:anotador_truco/screens/pantalla_3_jugadores.dart';
 import 'package:anotador_truco/screens/pantalla_4_jugadores.dart';
-import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
