@@ -62,7 +62,7 @@ void sumarPuntoA() {
       if (puntosEquipoB == 30) {
       DialogGanador.mostrarGanador(context, 'B', reiniciarPuntos);
     }}
-     LocalStorageService.guardarPuntaje('equipoB', puntosEquipoA);
+     LocalStorageService.guardarPuntaje('equipoB', puntosEquipoB);
   }
 
   void restarPuntoB() {
@@ -70,7 +70,7 @@ void sumarPuntoA() {
       setState(() {
         puntosEquipoB--;
       });
-      LocalStorageService.guardarPuntaje('equipoB', puntosEquipoA);
+      LocalStorageService.guardarPuntaje('equipoB', puntosEquipoB);
     }
   }
 
