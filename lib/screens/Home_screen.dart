@@ -1,4 +1,5 @@
 import 'package:anotador_truco/config/apptextcolor.dart';
+import 'package:anotador_truco/services/guardarPuntos.dart';
 import 'package:anotador_truco/widgets/botones_suma_resta.dart';
 import 'package:anotador_truco/widgets/cuadros_fosforitos.dart';
 import 'package:anotador_truco/widgets/dialog_ganador.dart';
@@ -15,6 +16,22 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int puntosEquipoA = 0;
   int puntosEquipoB = 0;
+
+  @override
+void initState() {
+  super.initState();
+  _cargarPuntajes();
+}
+
+Future<void> _cargarPuntajes() async {
+  final puntosA = await LocalStorageService.obtenerPuntaje('equipoA');
+  final puntosB = await LocalStorageService.obtenerPuntaje('equipoB');
+  setState(() {
+    puntosEquipoA = puntosA;
+    puntosEquipoB = puntosB;
+  });
+}
+
 void sumarPuntoA() {
   if (puntosEquipoA < 30) {
     setState(() {
@@ -23,6 +40,7 @@ void sumarPuntoA() {
       DialogGanador.mostrarGanador(context, 'A', reiniciarPuntos);
     }
     });
+     LocalStorageService.guardarPuntaje('equipoA', puntosEquipoA);
   }
 }
 
@@ -32,6 +50,7 @@ void sumarPuntoA() {
       setState(() {
         puntosEquipoA--;
       });
+       LocalStorageService.guardarPuntaje('equipoA', puntosEquipoA);
     }
   }
 
@@ -42,8 +61,8 @@ void sumarPuntoA() {
       });
       if (puntosEquipoB == 30) {
       DialogGanador.mostrarGanador(context, 'B', reiniciarPuntos);
-    }
-    }
+    }}
+     LocalStorageService.guardarPuntaje('equipoB', puntosEquipoA);
   }
 
   void restarPuntoB() {
@@ -51,6 +70,7 @@ void sumarPuntoA() {
       setState(() {
         puntosEquipoB--;
       });
+      LocalStorageService.guardarPuntaje('equipoB', puntosEquipoA);
     }
   }
 
@@ -59,6 +79,7 @@ void sumarPuntoA() {
       puntosEquipoA = 0;
       puntosEquipoB = 0;
     });
+    LocalStorageService.resetear();
   }
 
   @override
