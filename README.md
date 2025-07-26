@@ -1,20 +1,30 @@
+# 🃏 Anotador de Truco
 
-Aplicación web simple para llevar el puntaje de partidas de Truco, creada con Flutter Web.
+Una app web simple y visual para llevar el puntaje en partidas de Truco, diseñada con Flutter Web.
 
-se puede acceder por este enlace https://jano-c.netlify.app/
+> 🎯 Soporta juegos de 2, 3 y 4 equipos con interfaz clara y adaptada para usar en cualquier dispositivo.
 
-## Características
+---
 
-- Control de puntaje para dos equipos: "Nos" y "Ellos".
-- Representación visual con fosforitos (puntos en forma de cuadraditos).
-- Controles de suma y resta de puntos para cada equipo.
-- Mensaje de ganador cuando algún equipo llega a 30 puntos.
-- Diseño minimalista y oscuro para reducir consumo de batería.
-- Deploy sencillo y rápido en Netlify.
+## 🚀 Acceso rápido
 
-## Tecnologías
+👉 [anotador de truco en Netlify](https://jano-c.netlify.app)
 
+---
+
+## ✨ Características
+
+- ✅ Anotador clásico estilo "fosforitos"
+- 👥 Modo 2, 3 y 4 equipos
+- 🔁 Puntaje persistente con SharedPreferences (localStorage en web)
+- 🎨 Diseño moderno y oscuro
+- ☑️ Botón para reiniciar puntos
+
+## 🛠️ Tecnologías
+
+- Flutter 3.22
 - Flutter Web
-- Dart
-- Netlify para hosting
-
+- Riverpod (estado global)
+- Shared Preferences (web)
+- GoRouter (navegación)
+- Netlify (deploy)
