@@ -23,7 +23,7 @@ class _SideMenuState extends State<SideMenu> {
   @override
   void initState() {
     super.initState();
-    navDrawerIndex = widget.currentIndex; // ✅ inicialización
+    navDrawerIndex = widget.currentIndex;
   }
 
   @override

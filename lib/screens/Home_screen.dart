@@ -1,10 +1,5 @@
+import "package:anotador_truco/barril.dart";
 
-import 'package:anotador_truco/config/Theme/apptextcolor.dart';
-import 'package:anotador_truco/services/guardarPuntos.dart';
-import 'package:anotador_truco/widgets/dialog_ganador.dart';
-import 'package:anotador_truco/widgets/side_menu.dart';
-import 'package:anotador_truco/widgets/tablero_dos_equipos.dart';
-import 'package:flutter/material.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -122,7 +117,7 @@ void sumarPuntoA() {
       puntosEquipoA = 0;
       puntosEquipoB = 0;
     });
-    LocalStorageService.resetear();
+    LocalStorageService.resetearEquipos(['equipoA', 'equipoB']);
   }
 
 }
